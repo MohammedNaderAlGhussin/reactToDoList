@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+  --color-main-bg: #1E293B ;
+  --color-primary-text: #f8fafc;
+  --color-primary-button: #3b82f6;
+  --color-primary-button-hover: #60a5fa;
+  --color-main-border: #334155;
+}
+
+@layer components {
+  .btn {
+    @apply text-primary-button hover:text-primary-text hover:bg-primary-button duration-300 ease-in-out cursor-pointer border-2 border-main-border w-fit px-8 py-1 rounded-2xl;
+  }
+  .btn.active {
+    @apply text-primary-text bg-primary-button hover:bg-primary-button-hover duration-300 ease-in-out cursor-pointer border-2 border-main-border w-fit px-8 py-1 rounded-2xl;
+  }
+  .checkbox {
+    @apply w-5 h-5 accent-blue-500 border-2 border-slate-400 rounded dark:border-slate-600 transition-all duration-200;
+  }
+  .task-input {
+    @apply py-2 pl-3 outline-none border-2 border-main-border focus:border-2 focus:border-[#3B82F6] rounded-md focus:placeholder:opacity-0;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
