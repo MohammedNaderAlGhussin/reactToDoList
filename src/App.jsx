@@ -2,6 +2,7 @@ function App() {
   return (
     <div className="bg-[#1E293B] w-2/5 mx-auto mt-25 min-h-[300px] p-5 flex flex-col gap-5">
       <header className="text-3xl font-bold text-center">My Tasks</header>
+      {/* Start Nav Button */}
       <ul className="flex flex-row gap-4 mt-4">
         <li className="text-[#F8FAFC] bg-[#3B82F6] hover:bg-[#60A5FA] duration-300 ease-in-out cursor-pointer border-2 border-[#334155] w-fit px-8 py-1 rounded-2xl">
           All
@@ -13,6 +14,8 @@ function App() {
           Not Done
         </li>
       </ul>
+      {/* End Nav Button */}
+      {/* Start Tasks Section */}
       <div className="flex flex-col gap-5">
         <div
           className="py-4 px-3 bg-[#334155] rounded-2xl flex flex-row justify-between
@@ -58,11 +61,12 @@ function App() {
           </ul>
         </div>
       </div>
+      {/* End Tasks Section */}
       <button className="text-[#F8FAFC] bg-[#3B82F6] hover:bg-[#60A5FA] duration-300 ease-in-out cursor-pointer border-2 border-[#334155] w-[30px] h-[30px] flex justify-center items-center  p-6 rounded-full  ml-auto text-2xl font-bold">
         +
       </button>
-      <div className="absolute w-screen h-screen top-0 left-0 bg-black/30 z-10"></div>
-      <div className=" absolute min-w-[400px] min-h-[350px] bg-[#1E293B] top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
+      {/* <div className="absolute w-screen h-screen top-0 left-0 bg-black/30 z-10"></div> */}
+      {/* <div className=" absolute min-w-[400px] min-h-[350px] bg-[#1E293B] top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
         <div className="flex flex-row justify-between items-center">
           <h1 className="text-xl text-white font-bold">Add A New Task</h1>
           <button className="text-[#F8FAFC]">X</button>
@@ -71,7 +75,7 @@ function App() {
           <div className="flex flex-col gap-3">
             <label className="text-lg">Task Title</label>
             <input
-              className="py-2 pl-1 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] rounded-md focus:placeholder:opacity-0 "
+              className="py-2 pl-3 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] rounded-md focus:placeholder:opacity-0 "
               type="text"
               placeholder="e. Finsih a project"
             />
@@ -79,7 +83,7 @@ function App() {
           <div className="flex flex-col gap-2">
             <label className="text-lg">Description (Optional)</label>
             <input
-              className="py-2 pl-1 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] duration-500 rounded-md focus:placeholder:opacity-0"
+              className="py-2 pl-3 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] duration-500 rounded-md focus:placeholder:opacity-0"
               type="text"
               placeholder="e. Finsih a project"
             />
@@ -93,7 +97,39 @@ function App() {
             </button>
           </div>
         </form>
-      </div>
+      </div> */}
+      {/* <div className=" absolute min-w-[400px] min-h-[350px] bg-[#1E293B] top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
+        <div className="flex flex-row justify-between items-center">
+          <h1 className="text-xl text-white font-bold">Edit Task</h1>
+          <button className="text-[#F8FAFC]">X</button>
+        </div>
+        <form className="flex flex-col gap-5 flex-1">
+          <div className="flex flex-col gap-3">
+            <label className="text-lg">Task Title</label>
+            <input
+              className="py-2 pl-3 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] rounded-md focus:placeholder:opacity-0 "
+              type="text"
+              placeholder="e. Finsih a project"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-lg">Description (Optional)</label>
+            <input
+              className="py-2 pl-3 outline-none border-2 border-[#334155] focus:border-2 focus:border-[#3B82F6] duration-500 rounded-md focus:placeholder:opacity-0"
+              type="text"
+              placeholder="e. Finsih a project"
+            />
+          </div>
+          <div className="flex gap-2 mt-auto justify-between">
+            <button className="hover:bg-red-500 duration-300 text-white cursor-pointer border-2 border-[#334155] w-fit px-6 py-1 rounded-2xl">
+              Cancel
+            </button>
+            <button className="text-[#F8FAFC] bg-[#3B82F6] hover:bg-[#60A5FA] duration-300 ease-in-out cursor-pointer border-2 border-[#334155] w-fit px-6 py-1 rounded-2xl">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div> */}
     </div>
   );
 }
