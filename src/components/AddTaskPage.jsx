@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { TasksContext } from "../context/TasksContext";
+import { ModalContext } from "../context/ModalContext";
 
-const AddTaskPage = ({ showModalHandler }) => {
+const AddTaskPage = () => {
   const { addTask } = useContext(TasksContext);
+  const { toggleModal } = useContext(ModalContext);
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -22,7 +24,7 @@ const AddTaskPage = ({ showModalHandler }) => {
     if (newTask.title == "") return;
     addTask(newTask);
 
-    setTimeout(showModalHandler(false), 0);
+    setTimeout(toggleModal(), 0);
   };
 
   return (
@@ -31,7 +33,7 @@ const AddTaskPage = ({ showModalHandler }) => {
         <h1 className="text-xl text-white font-bold">Add A New Task</h1>
         <button
           className="text-primary-text cursor-pointer"
-          onClick={() => showModalHandler(false)}
+          onClick={() => toggleModal()}
         >
           X
         </button>
@@ -65,7 +67,7 @@ const AddTaskPage = ({ showModalHandler }) => {
         <div className="flex gap-2 mt-auto justify-between">
           <button
             className="btn hover:bg-red-500  text-white  border-2  px-6 py-1 "
-            onClick={() => showModalHandler(false)}
+            onClick={() => toggleModal()}
           >
             Cancel
           </button>

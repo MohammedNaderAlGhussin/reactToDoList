@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useContext } from "react";
 import AddTaskBtn from "./components/AddTaskBtn";
 import AddTaskPage from "./components/AddTaskPage";
 import Header from "./components/Header";
 import NavButton from "./components/NavButton";
 import OverLay from "./components/OverLay";
 import Tasks from "./components/Tasks";
+import { ModalContext } from "./context/ModalContext";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const { showModal } = useContext(ModalContext);
   return (
     <div className="bg-main-bg w-2/5 mx-auto mt-25 min-h-[300px] p-5 flex flex-col gap-5">
       <Header />
       <NavButton />
       <Tasks />
-      <AddTaskBtn showModalHandler={setShowModal} />
+      <AddTaskBtn />
 
       {showModal && (
         <>
-          <OverLay showModalHandler={setShowModal} />
-          <AddTaskPage showModalHandler={setShowModal} />
+          <OverLay />
+          <AddTaskPage />
         </>
       )}
 

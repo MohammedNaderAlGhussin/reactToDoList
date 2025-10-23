@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ModalContext } from "../context/ModalContext";
 
-const OverLay = ({ showModalHandler }) => {
+const OverLay = () => {
+  const { toggleModal } = useContext(ModalContext);
   return (
     <div
       className="absolute w-screen h-screen top-0 left-0 bg-black/30 z-10"
-      onClick={() => showModalHandler(false)}
+      onClick={() => toggleModal()}
     ></div>
   );
 };

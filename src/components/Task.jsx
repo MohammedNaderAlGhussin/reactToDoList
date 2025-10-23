@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
+import { ModalContext } from "../context/ModalContext";
 
 const Task = ({ task }) => {
   const { deleteTask, toggleComplete } = useContext(TasksContext);
+  const { toggleModal } = useContext(ModalContext);
 
   return (
     <div
@@ -33,6 +35,7 @@ const Task = ({ task }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="size-8 cursor-pointer"
+          onClick={toggleModal}
         >
           <path
             strokeLinecap="round"

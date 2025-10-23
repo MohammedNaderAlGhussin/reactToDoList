@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { TasksContextProvider } from "./context/TasksContextProvider.jsx";
+import { ModalContextProvider } from "./context/ModalContextProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <TasksContextProvider>
-      <App />
-    </TasksContextProvider>
+    <ModalContextProvider>
+      <TasksContextProvider>
+        <App />
+      </TasksContextProvider>
+    </ModalContextProvider>
   </StrictMode>
 );
