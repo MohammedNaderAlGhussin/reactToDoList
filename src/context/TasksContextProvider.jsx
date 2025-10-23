@@ -8,6 +8,7 @@ let tasksArr = [
 
 export const TasksContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState(tasksArr);
+  const [filter, setFilter] = useState("all"); // all | done | not done
 
   console.log(tasks);
   const addTask = (task) => {
@@ -34,7 +35,15 @@ export const TasksContextProvider = ({ children }) => {
   };
   return (
     <TasksContext.Provider
-      value={{ tasks, setTasks, deleteTask, toggleComplete, addTask }}
+      value={{
+        tasks,
+        setTasks,
+        deleteTask,
+        toggleComplete,
+        addTask,
+        filter,
+        setFilter,
+      }}
     >
       {children}
     </TasksContext.Provider>
