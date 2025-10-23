@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AddTaskBtn from "./components/AddTaskBtn";
 import AddTaskPage from "./components/AddTaskPage";
 import Header from "./components/Header";
@@ -6,15 +7,20 @@ import OverLay from "./components/OverLay";
 import Tasks from "./components/Tasks";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="bg-main-bg w-2/5 mx-auto mt-25 min-h-[300px] p-5 flex flex-col gap-5">
       <Header />
       <NavButton />
       <Tasks />
-      <AddTaskBtn />
+      <AddTaskBtn showModalHandler={setShowModal} />
 
-      {/* <OverLay /> */}
-      {/* <AddTaskPage /> */}
+      {showModal && (
+        <>
+          <OverLay showModalHandler={setShowModal} />
+          <AddTaskPage showModalHandler={setShowModal} />
+        </>
+      )}
 
       {/* <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
         <div className="flex flex-row justify-between items-center">
