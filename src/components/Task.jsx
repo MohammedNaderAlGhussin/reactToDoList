@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TasksContext } from "../context/TasksContext";
 
-const Task = () => {
+const Task = ({ task }) => {
+  const { deleteTask, toggleComplete } = useContext(TasksContext);
+
   return (
     <div
       className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between
         "
     >
       <div className="flex flex-row gap-2 items-center">
-        <input type="checkbox" className="checkbox" />
-        <p>Finsh watchin the react course</p>
+        <input
+          type="checkbox"
+          className="checkbox"
+          checked={task.completed}
+          onChange={() => toggleComplete(task.id)}
+        />
+        <p className={`${task.completed && "line-through font-bold text-lg"}`}>
+          {task.title}
+        </p>
+        {task.desc && (
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
+            {task.desc}
+          </p>
+        )}
       </div>
       <ul className="flex flex-row gap-2">
         <svg
@@ -33,6 +48,7 @@ const Task = () => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="size-8 btn text-red-500 border border-red-500 rounded-full p-1 hover:bg-red-500 hover:text-white"
+          onClick={() => deleteTask(task.id)}
         >
           <path
             strokeLinecap="round"

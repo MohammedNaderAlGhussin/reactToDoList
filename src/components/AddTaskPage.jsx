@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { TasksContext } from "../context/TasksContext";
 
 const AddTaskPage = ({ showModalHandler }) => {
-  const { tasks, setTasks } = useContext(TasksContext);
+  const { addTask } = useContext(TasksContext);
+
   const [newTask, setNewTask] = useState({
-    id: null,
     title: "",
     desc: "",
     completed: false,
@@ -12,16 +12,17 @@ const AddTaskPage = ({ showModalHandler }) => {
   const handelChange = (e) => {
     setNewTask({
       ...newTask,
-      id: tasks.length >= 1 ? tasks[tasks.length - 1].id + 1 : 1,
       [e.target.name]: e.target.value,
     });
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
+
     if (newTask.title == "") return;
-    setTasks([...tasks, newTask]);
+    addTask(newTask);
+
     setTimeout(showModalHandler(false), 0);
-    console.log(newTask);
   };
 
   return (
@@ -55,7 +56,7 @@ const AddTaskPage = ({ showModalHandler }) => {
           <input
             className="task-input"
             type="text"
-            placeholder="e. Finsih a project"
+            placeholder="Finish the Project Ya kosmk"
             value={newTask.desc}
             name="desc"
             onChange={handelChange}
