@@ -3,17 +3,23 @@ import Task from "./Task";
 import { TasksContext } from "../context/TasksContext";
 
 const Tasks = () => {
-  const { tasks } = useContext(TasksContext);
+  const { tasks, filter } = useContext(TasksContext);
 
-  const tasksList = tasks.map((task) => {
-    return <Task key={task.id} task={task} />;
+  // filter and get the tasked wheter done / not done / all.
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "done") return task.completed;
+    if (filter === "not done") return !task.completed;
+    return true; //all
   });
   return (
     <div className="flex flex-col gap-5">
-      {tasks.length === 0 ? (
+      {filteredTasks.length === 0 ? (
         <p className="text-slate-500">No tasks yet ✨</p>
       ) : (
-        tasksList
+        //map on the filtered taks and display the task components
+        filteredTasks.map((fTask) => {
+          return <Task key={fTask.id} task={fTask} />;
+        })
       )}
     </div>
   );
