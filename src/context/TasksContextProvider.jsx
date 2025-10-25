@@ -23,7 +23,7 @@ export const TasksContextProvider = ({ children }) => {
     ]);
   };
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id)); 
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   const toggleComplete = (id) => {
