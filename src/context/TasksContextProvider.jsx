@@ -8,6 +8,7 @@ import { TasksContext } from "./TasksContext";
 
 export const TasksContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState(() => {
+    //check if there were tasks in the local storage and display on load
     const savedTaks = JSON.parse(window.localStorage.getItem("tasks"));
     return savedTaks ? savedTaks : [];
   });
