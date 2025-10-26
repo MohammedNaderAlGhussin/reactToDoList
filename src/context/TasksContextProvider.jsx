@@ -24,7 +24,6 @@ export const TasksContextProvider = ({ children }) => {
       - assigning the new taks into an external object.
       - assiging the updated state into a new variable (updateTasks)
       - updating the state with the new object created with passing the new variable. 
-      - adding the updatedTasks into the localstorage
       Notes: the commented lines are explained above. 
      */
     const newTask = {
