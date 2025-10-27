@@ -3,13 +3,37 @@ import { ModalContext } from "./ModalContext";
 
 export const ModalContextProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
+  const [modalMode, setModalMode] = useState("add"); //add | edit
+  const [currentTask, setCurrentTask] = useState(null);
 
-  const toggleModal = () => {
-    setShowModal((prev) => !prev);
+  const openAddModal = () => {
+    setModalMode("add");
+    setCurrentTask(null);
+    setShowModal(true);
+  };
+
+  const openEditModal = (task) => {
+    setModalMode("edit");
+    setCurrentTask(task);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentTask(null);
   };
 
   return (
-    <ModalContext.Provider value={{ showModal, setShowModal, toggleModal }}>
+    <ModalContext.Provider
+      value={{
+        showModal,
+        currentTask,
+        modalMode,
+        openAddModal,
+        openEditModal,
+        closeModal,
+      }}
+    >
       {children}
     </ModalContext.Provider>
   );

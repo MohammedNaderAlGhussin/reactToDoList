@@ -5,14 +5,14 @@ import { TasksContext } from "../context/TasksContext";
 const Tasks = () => {
   const { tasks, filter } = useContext(TasksContext);
 
-  // filter and get the tasked wheter done / not done / all.
+  // filter and get the tasked whether done / not done / all.
   const filteredTasks = tasks.filter((task) => {
     if (filter === "done") return task.completed;
     if (filter === "not done") return !task.completed;
     return true; //all
   });
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 overflow-y-scroll max-h-[560px]">
       {filteredTasks.length === 0 ? (
         <p className="text-slate-500">No tasks yet ✨</p>
       ) : (
