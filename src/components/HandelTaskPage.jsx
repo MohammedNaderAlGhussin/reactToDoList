@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { TasksContext } from "../context/TasksContext";
 import { ModalContext } from "../context/ModalContext";
+import { TasksContext } from "../context/TasksContext";
 
-const AddTaskPage = () => {
+const HandelTaskPage = () => {
   const { addTask } = useContext(TasksContext);
-  const { closeModal } = useContext(ModalContext);
+  const { closeModal, modalMode } = useContext(ModalContext);
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -26,11 +26,13 @@ const AddTaskPage = () => {
 
     setTimeout(closeModal(), 0);
   };
-
   return (
     <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
       <div className="flex flex-row justify-between items-center">
-        <h1 className="text-xl text-white font-bold">Add A New Task</h1>
+        <h1 className="text-xl text-white font-bold">
+          {" "}
+          {modalMode == "add" ? "Add A New Task" : "Edit your Task"}
+        </h1>
         <button
           className="text-primary-text cursor-pointer"
           onClick={() => closeModal()}
@@ -75,7 +77,7 @@ const AddTaskPage = () => {
             className="btn active px-6 py-1 "
             // onClick={() => showModalHandler(false)}
           >
-            Add Task
+            {modalMode == "add" ? "AddTask" : "Save Changes"}
           </button>
         </div>
       </form>
@@ -83,4 +85,4 @@ const AddTaskPage = () => {
   );
 };
 
-export default AddTaskPage;
+export default HandelTaskPage;

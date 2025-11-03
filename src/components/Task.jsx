@@ -4,7 +4,7 @@ import { ModalContext } from "../context/ModalContext";
 
 const Task = ({ task }) => {
   const { deleteTask, toggleComplete } = useContext(TasksContext);
-  const { toggleModal } = useContext(ModalContext);
+  const { openEditModal } = useContext(ModalContext);
 
   return (
     <div
@@ -35,7 +35,7 @@ const Task = ({ task }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="size-8 cursor-pointer"
-          onClick={toggleModal}
+          onClick={() => openEditModal(task)}
         >
           <path
             strokeLinecap="round"

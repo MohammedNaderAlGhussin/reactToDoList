@@ -16,12 +16,7 @@ function App() {
       <Tasks />
       <AddTaskBtn />
 
-      {showModal && (
-        <>
-          <OverLay />
-          <AddTaskPage />
-        </>
-      )}
+      {showModal && <OverLay />}
 
       {/* <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
         <div className="flex flex-row justify-between items-center">
