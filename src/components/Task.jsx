@@ -5,7 +5,6 @@ import { ModalContext } from "../context/ModalContext";
 const Task = ({ task }) => {
   const { deleteTask, toggleComplete } = useContext(TasksContext);
   const { openEditModal } = useContext(ModalContext);
-
   return (
     <div
       className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between

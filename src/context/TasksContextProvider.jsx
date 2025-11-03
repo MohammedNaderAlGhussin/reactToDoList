@@ -53,6 +53,31 @@ export const TasksContextProvider = ({ children }) => {
       )
     );
   };
+
+  const editTask = (taskToEdit) => {
+    // sending the current task to be edit and update the value then update the tasks state
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === taskToEdit.id
+          ? { ...task, title: taskToEdit.title, desc: taskToEdit.desc }
+          : task
+      )
+    );
+
+    /*
+
+    - same function different way to wirte. 
+
+    setTasks((prev) => {
+      return prev.map((task) => {
+        return task.id === taskToEdit.id
+          ? { ...task, title: taskToEdit.title, desc: taskToEdit.desc }
+          : task;
+      });
+    });
+
+    */
+  };
   return (
     <TasksContext.Provider
       value={{
@@ -63,6 +88,7 @@ export const TasksContextProvider = ({ children }) => {
         addTask,
         filter,
         setFilter,
+        editTask,
       }}
     >
       {children}

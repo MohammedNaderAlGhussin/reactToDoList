@@ -32,6 +32,7 @@ export const ModalContextProvider = ({ children }) => {
         openAddModal,
         openEditModal,
         closeModal,
+        setCurrentTask,
       }}
     >
       {children}

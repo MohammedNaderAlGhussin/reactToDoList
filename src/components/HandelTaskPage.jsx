@@ -3,8 +3,9 @@ import { ModalContext } from "../context/ModalContext";
 import { TasksContext } from "../context/TasksContext";
 
 const HandelTaskPage = () => {
-  const { addTask } = useContext(TasksContext);
-  const { closeModal, modalMode } = useContext(ModalContext);
+  const { addTask, editTask } = useContext(TasksContext);
+  const { closeModal, modalMode, currentTask, setCurrentTask } =
+    useContext(ModalContext);
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -12,17 +13,28 @@ const HandelTaskPage = () => {
     completed: false,
   });
   const handelChange = (e) => {
-    setNewTask({
-      ...newTask,
-      [e.target.name]: e.target.value,
-    });
+    if (modalMode == "add") {
+      setNewTask({
+        ...newTask,
+        [e.target.name]: e.target.value,
+      });
+    } else {
+      setCurrentTask({
+        ...currentTask,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (newTask.title == "") return;
-    addTask(newTask);
+    if (modalMode == "add") {
+      if (newTask.title == "") return;
+      addTask(newTask);
+    } else {
+      editTask(currentTask);
+    }
 
     setTimeout(closeModal(), 0);
   };
@@ -48,9 +60,9 @@ const HandelTaskPage = () => {
           <input
             className="task-input"
             type="text"
-            placeholder="e. Finsih a project"
+            // placeholder="e. Finsih a project"
             id="task-title"
-            value={newTask.title}
+            value={modalMode == "edit" ? currentTask.title : newTask.title}
             name="title"
             onChange={handelChange}
           />
@@ -60,8 +72,8 @@ const HandelTaskPage = () => {
           <input
             className="task-input"
             type="text"
-            placeholder="Finish the Project Ya kosmk"
-            value={newTask.desc}
+            // placeholder="Finish the Project Ya kosmk"
+            value={modalMode == "edit" ? currentTask.desc : newTask.desc}
             name="desc"
             onChange={handelChange}
           />
