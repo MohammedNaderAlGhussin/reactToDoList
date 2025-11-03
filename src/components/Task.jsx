@@ -1,20 +1,29 @@
 import { useTasks } from "../context/TasksContext";
 import { useModal } from "../context/ModalContext";
+import { useToast } from "../context/ToastContext";
 
 const Task = ({ task }) => {
   const { deleteTask, toggleComplete } = useTasks();
   const { openEditModal } = useModal();
+  const { showHiddenToast } = useToast();
+
+  const toggleCompleteHandler = () => {
+    toggleComplete(task.id);
+    showHiddenToast(true);
+  };
+
+  const deleteHandler = () => {
+    deleteTask(task.id);
+    showHiddenToast(true);
+  };
   return (
-    <div
-      className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between
-        "
-    >
+    <div className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between">
       <div className="flex flex-row gap-2 items-center">
         <input
           type="checkbox"
           className="checkbox"
           checked={task.completed}
-          onChange={() => toggleComplete(task.id)}
+          onChange={toggleCompleteHandler}
         />
         <p className={`${task.completed && "line-through font-bold text-lg"}`}>
           {task.title}
@@ -49,7 +58,7 @@ const Task = ({ task }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="size-8 btn text-red-500 border border-red-500 rounded-full p-1 hover:bg-red-500 hover:text-white"
-          onClick={() => deleteTask(task.id)}
+          onClick={deleteHandler}
         >
           <path
             strokeLinecap="round"

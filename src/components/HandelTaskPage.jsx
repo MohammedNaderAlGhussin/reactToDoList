@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useModal } from "../context/ModalContext";
 import { useTasks } from "../context/TasksContext";
+import { useToast } from "../context/ToastContext";
 
 const HandelTaskPage = () => {
   const { addTask, editTask } = useTasks();
   const { closeModal, modalMode, currentTask, setCurrentTask } = useModal();
+  const { showHiddenToast } = useToast();
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -36,6 +38,7 @@ const HandelTaskPage = () => {
     }
 
     setTimeout(() => closeModal(), 0);
+    showHiddenToast(true);
   };
   return (
     <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
