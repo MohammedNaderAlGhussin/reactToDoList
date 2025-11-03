@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
-import { ModalContext } from "../context/ModalContext";
+import { useTasks } from "../context/TasksContext";
+import { useModal } from "../context/ModalContext";
 
 const Task = ({ task }) => {
-  const { deleteTask, toggleComplete } = useContext(TasksContext);
-  const { openEditModal } = useContext(ModalContext);
+  const { deleteTask, toggleComplete } = useTasks();
+  const { openEditModal } = useModal();
   return (
     <div
       className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between

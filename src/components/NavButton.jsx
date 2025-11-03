@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { TasksContext } from "../context/TasksContext";
+import { useTasks } from "../context/TasksContext";
 
 const NavButton = () => {
-  const { filter, setFilter } = useContext(TasksContext);
+  const { filter, setFilter } = useTasks();
   return (
     <ul className="flex flex-row gap-4 mt-4">
       <li

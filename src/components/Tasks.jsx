@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
 import Task from "./Task";
-import { TasksContext } from "../context/TasksContext";
+import { useTasks } from "../context/TasksContext";
 
 const Tasks = () => {
-  const { tasks, filter } = useContext(TasksContext);
+  const { tasks, filter } = useTasks();
 
   // filter and get the tasked whether done / not done / all.
   const filteredTasks = tasks.filter((task) => {

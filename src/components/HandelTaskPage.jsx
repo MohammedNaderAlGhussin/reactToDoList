@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import { ModalContext } from "../context/ModalContext";
-import { TasksContext } from "../context/TasksContext";
+import React, { useState } from "react";
+import { useModal } from "../context/ModalContext";
+import { useTasks } from "../context/TasksContext";
 
 const HandelTaskPage = () => {
-  const { addTask, editTask } = useContext(TasksContext);
-  const { closeModal, modalMode, currentTask, setCurrentTask } =
-    useContext(ModalContext);
+  const { addTask, editTask } = useTasks();
+  const { closeModal, modalMode, currentTask, setCurrentTask } = useModal();
 
   const [newTask, setNewTask] = useState({
     title: "",

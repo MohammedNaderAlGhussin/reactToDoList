@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { ModalContext } from "../context/ModalContext";
+import { useModal } from "../context/ModalContext";
 import HandelTaskPage from "./HandelTaskPage";
 
 const OverLay = () => {
-  const { closeModal } = useContext(ModalContext);
+  const { closeModal } = useModal();
   return (
     <>
       <div
