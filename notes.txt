@@ -1,2 +1,3 @@
 - In the main branch, the project works prefectlly. 
 - I Made a new branch for applying the useReducer hook and logic
+- Why a new branch ? Because I want to mintain the normal state for the future. 
