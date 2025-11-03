@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import AddTaskBtn from "./components/AddTaskBtn";
-import AddTaskPage from "./components/AddTaskPage";
 import Header from "./components/Header";
 import NavButton from "./components/NavButton";
 import OverLay from "./components/OverLay";

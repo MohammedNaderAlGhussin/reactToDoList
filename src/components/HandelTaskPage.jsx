@@ -36,7 +36,7 @@ const HandelTaskPage = () => {
       editTask(currentTask);
     }
 
-    setTimeout(closeModal(), 0);
+    setTimeout(() => closeModal(), 0);
   };
   return (
     <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
