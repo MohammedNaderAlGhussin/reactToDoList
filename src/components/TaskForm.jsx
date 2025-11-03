@@ -3,7 +3,7 @@ import { useModal } from "../context/ModalContext";
 import { useTasks } from "../context/TasksContext";
 import { useToast } from "../context/ToastContext";
 
-const HandelTaskPage = () => {
+const TaskForm = () => {
   const { addTask, editTask } = useTasks();
   const { closeModal, modalMode, currentTask, setCurrentTask } = useModal();
   const { showHiddenToast, setToastMsg } = useToast();
@@ -76,7 +76,7 @@ const HandelTaskPage = () => {
           <input
             className="task-input"
             type="text"
-            // placeholder="Finish the Project Ya kosmk"
+            // placeholder="Finish the Project"
             value={modalMode == "edit" ? currentTask.desc : newTask.desc}
             name="desc"
             onChange={handelChange}
@@ -101,4 +101,4 @@ const HandelTaskPage = () => {
   );
 };
 
-export default HandelTaskPage;
+export default TaskForm;
