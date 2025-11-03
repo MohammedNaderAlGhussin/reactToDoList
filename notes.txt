@@ -1,0 +1,2 @@
+- In the main branch, the project works prefectlly. 
+- I Made a new branch for applying the useReducer hook and logic
