@@ -6,7 +6,7 @@ import { useToast } from "../context/ToastContext";
 const HandelTaskPage = () => {
   const { addTask, editTask } = useTasks();
   const { closeModal, modalMode, currentTask, setCurrentTask } = useModal();
-  const { showHiddenToast } = useToast();
+  const { showHiddenToast, setToastMsg } = useToast();
 
   const [newTask, setNewTask] = useState({
     title: "",
@@ -33,8 +33,10 @@ const HandelTaskPage = () => {
     if (modalMode == "add") {
       if (newTask.title == "") return;
       addTask(newTask);
+      setToastMsg("Task Added Successfully !");
     } else {
       editTask(currentTask);
+      setToastMsg("Task Changed Successfully !");
     }
 
     setTimeout(() => closeModal(), 0);

@@ -5,16 +5,18 @@ import { useToast } from "../context/ToastContext";
 const Task = ({ task }) => {
   const { deleteTask, toggleComplete } = useTasks();
   const { openEditModal } = useModal();
-  const { showHiddenToast } = useToast();
+  const { showHiddenToast, setToastMsg } = useToast();
 
   const toggleCompleteHandler = () => {
     toggleComplete(task.id);
     showHiddenToast(true);
+    setToastMsg("Task Changed !");
   };
 
   const deleteHandler = () => {
     deleteTask(task.id);
     showHiddenToast(true);
+    setToastMsg("Task Deleted Successfully !");
   };
   return (
     <div className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between">
