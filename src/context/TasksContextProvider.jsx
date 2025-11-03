@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 import { TasksContext } from "./TasksContext";
 
-// let tasksArr = [
-//   { id: 1, title: " finish the project", completed: true },
-//   { id: 2, title: "Anekak ya kosmkm", completed: false },
-// ];
-
 export const TasksContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState(() => {
     //check if there were tasks in the local storage and display on load
     const savedTaks = JSON.parse(window.localStorage.getItem("tasks"));
     return savedTaks ? savedTaks : [];
   });
+
+  // state to filter tasks
   const [filter, setFilter] = useState("all"); // all | done | not done
 
   // Add tasks to local storage
@@ -21,7 +18,7 @@ export const TasksContextProvider = ({ children }) => {
 
   const addTask = (task) => {
     /*
-      - assigning the new taks into an external object.
+      - assigning the new task into an external object.
       - assiging the updated state into a new variable (updateTasks)
       - updating the state with the new object created with passing the new variable. 
       Notes: the commented lines are explained above. 
