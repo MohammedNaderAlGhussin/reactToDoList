@@ -1,38 +1,25 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { ModalContext } from "./ModalContext";
+import { modalReducer } from "../reducers/modalReducer";
 
 export const ModalContextProvider = ({ children }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [modalMode, setModalMode] = useState("add"); //add | edit
-  const [currentTask, setCurrentTask] = useState(null);
-
-  const openAddModal = () => {
-    setModalMode("add");
-    setCurrentTask(null);
-    setShowModal(true);
+  const intialState = {
+    isOpen: false,
+    mode: "add",
+    currentTask: null,
   };
+  const [state, dispatch] = useReducer(modalReducer, intialState);
+  const openAddModal = (mode, task = null) =>
+    dispatch({ type: "OPEN_MODAL", payload: { mode, task } });
 
-  const openEditModal = (task) => {
-    setModalMode("edit");
-    setCurrentTask(task);
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setCurrentTask(null);
-  };
+  const closeModal = () => dispatch({ type: "CLOSE_MODAL" });
 
   return (
     <ModalContext.Provider
       value={{
-        showModal,
-        currentTask,
-        modalMode,
+        ...state,
         openAddModal,
-        openEditModal,
         closeModal,
-        setCurrentTask,
       }}
     >
       {children}
