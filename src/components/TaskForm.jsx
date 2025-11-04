@@ -46,7 +46,6 @@ const TaskForm = () => {
     <div className=" absolute min-w-[400px] min-h-[350px] bg-main-bg top-1/2 left-1/2 z-20 -translate-1/2 flex flex-col gap-6 p-5">
       <div className="flex flex-row justify-between items-center">
         <h1 className="text-xl text-white font-bold">
-          {" "}
           {modalMode == "add" ? "Add A New Task" : "Edit your Task"}
         </h1>
         <button
@@ -89,10 +88,7 @@ const TaskForm = () => {
           >
             Cancel
           </button>
-          <button
-            className="btn active px-6 py-1 "
-            // onClick={() => showModalHandler(false)}
-          >
+          <button className="btn active px-6 py-1 ">
             {modalMode == "add" ? "AddTask" : "Save Changes"}
           </button>
         </div>
