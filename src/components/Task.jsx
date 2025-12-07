@@ -27,7 +27,7 @@ const Task = ({ task }) => {
           checked={task.completed}
           onChange={toggleCompleteHandler}
         />
-        <p className={`${task.completed && "line-through font-bold text-lg"}`}>
+        <p className={`${task.completed && "line-through font-bold text-lg "}`}>
           {task.title}
         </p>
         {task.desc && (
