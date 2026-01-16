@@ -19,7 +19,7 @@ const Task = ({ task }) => {
     setToastMsg("Task Deleted Successfully !");
   };
   return (
-    <div className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between">
+    <div className="py-4 px-3 bg-main-border rounded-2xl flex flex-row justify-between ">
       <div className="flex flex-row gap-2 items-center">
         <input
           type="checkbox"
